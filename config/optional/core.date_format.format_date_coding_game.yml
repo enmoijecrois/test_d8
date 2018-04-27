@@ -1,0 +1,10 @@
+uuid: 0bf4df64-49be-4e58-9b1b-900468fa364b
+langcode: fr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: fTR2mRm9LhXV_KHcY_qF6FrDiaQEKA_hYXF_dZyOyB0
+id: format_date_coding_game
+label: 'Format Date Coding Game'
+locked: true
+pattern: 'l j F Y'

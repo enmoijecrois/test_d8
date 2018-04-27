@@ -1,0 +1,26 @@
+uuid: 05e115b9-2892-4170-ad96-014a08138f0f
+langcode: fr
+status: true
+dependencies:
+  module:
+    - route_condition
+    - test_d8
+  theme:
+    - bootstrap_child
+id: charttestsdrupal8
+theme: bootstrap_child
+region: content
+weight: 0
+provider: null
+plugin: chart_tests_drupal8
+settings:
+  id: chart_tests_drupal8
+  label: 'Résultats des tests'
+  provider: test_d8
+  label_display: visible
+visibility:
+  route:
+    id: route
+    routes: entity.user.canonical
+    negate: false
+    context_mapping: {  }

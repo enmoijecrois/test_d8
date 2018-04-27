@@ -1,0 +1,21 @@
+uuid: 5387259b-d4a5-4abc-94cf-0b14ed76b96f
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_question
+    - paragraphs.paragraphs_type.ptype_question
+  module:
+    - text
+id: paragraph.ptype_question.field_question
+field_name: field_question
+entity_type: paragraph
+bundle: ptype_question
+label: Question
+description: 'Saisir une question'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

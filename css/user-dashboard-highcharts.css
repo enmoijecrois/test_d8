@@ -1,0 +1,10 @@
+@import 'https://code.highcharts.com/css/highcharts.css';
+
+#charts{
+width:100%;
+height:400px;
+}
+.highcharts-background{
+fill: #f8f8f8;
+}
+

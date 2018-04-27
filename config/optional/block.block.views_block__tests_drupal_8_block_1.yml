@@ -1,0 +1,31 @@
+uuid: 5acd3ff6-5f6d-4129-a05e-d69c33261651
+langcode: fr
+status: true
+dependencies:
+  config:
+    - views.view.tests_drupal_8
+  module:
+    - route_condition
+    - views
+  theme:
+    - bootstrap_child
+id: views_block__tests_drupal_8_block_1
+theme: bootstrap_child
+region: content
+weight: 1
+provider: null
+plugin: 'views_block:tests_drupal_8-block_1'
+settings:
+  id: 'views_block:tests_drupal_8-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  route:
+    id: route
+    routes: entity.user.canonical
+    negate: false
+    context_mapping: {  }

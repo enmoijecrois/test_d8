@@ -1,0 +1,8 @@
+uuid: de90c007-8dbb-4eb0-9381-4eb1fef640d5
+langcode: fr
+status: true
+dependencies: {  }
+id: format_date_content_type
+label: 'Format Date Content Type'
+locked: false
+pattern: 'Y-m-d\TH:i:s'

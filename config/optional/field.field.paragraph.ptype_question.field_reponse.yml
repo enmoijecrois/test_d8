@@ -1,0 +1,21 @@
+uuid: 17369229-9259-451e-876c-3732ece812fd
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_reponse
+    - paragraphs.paragraphs_type.ptype_question
+  module:
+    - options
+id: paragraph.ptype_question.field_reponse
+field_name: field_reponse
+entity_type: paragraph
+bundle: ptype_question
+label: Réponse
+description: 'Indiquer la bonne réponse'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

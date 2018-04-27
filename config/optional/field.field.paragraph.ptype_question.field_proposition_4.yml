@@ -1,0 +1,21 @@
+uuid: df509a43-caae-4806-89b8-6b6069c02451
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_proposition_4
+    - paragraphs.paragraphs_type.ptype_question
+  module:
+    - text
+id: paragraph.ptype_question.field_proposition_4
+field_name: field_proposition_4
+entity_type: paragraph
+bundle: ptype_question
+label: 'Proposition 4'
+description: 'Saisir la quatrième proposition qui servira à répondre à la question ou non'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

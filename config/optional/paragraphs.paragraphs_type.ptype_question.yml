@@ -1,0 +1,11 @@
+uuid: 0fefbb5a-07ca-4ad8-b383-e16d66a08bc7
+langcode: fr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: I7SCd9RpbW0lUGEQvjNoTamDfhE7wmQcRsnvJ2f-bHs
+id: ptype_question
+label: Question
+icon_uuid: null
+description: 'Ce paragraph type sert à paramétrer les champs servant à l''insertion d''une Question pour un Test'
+behavior_plugins: {  }

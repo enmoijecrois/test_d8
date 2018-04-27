@@ -1,0 +1,28 @@
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_score_nid
+    - node.type.score
+    - node.type.test
+id: node.score.field_score_nid
+field_name: field_score_nid
+entity_type: node
+bundle: score
+label: 'nid (Id du Test Drupal 8)'
+description: 'Indique le nid du Test Drupal 8 qui a été passé par l''utilisateur'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      test: test
+    sort:
+      field: field_score_nid
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

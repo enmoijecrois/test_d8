@@ -1,0 +1,30 @@
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_questions
+    - node.type.test
+    - paragraphs.paragraphs_type.ptype_question
+  module:
+    - entity_reference_revisions
+id: node.test.field_questions
+field_name: field_questions
+entity_type: node
+bundle: test
+label: Questions
+description: "Ce champ vous permet d'ajouter un panel de questions, vous pouvez en ajouter autant que vous le souhaitez.\r\nUn minimum de 100 questions est recommandé."
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      ptype_question: ptype_question
+    target_bundles_drag_drop:
+      ptype_question:
+        enabled: true
+        weight: 2
+field_type: entity_reference_revisions

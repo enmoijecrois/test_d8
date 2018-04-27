@@ -1,0 +1,21 @@
+uuid: eb763ec3-923e-46f9-a75d-721854dc2467
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_proposition_2
+    - paragraphs.paragraphs_type.ptype_question
+  module:
+    - text
+id: paragraph.ptype_question.field_proposition_2
+field_name: field_proposition_2
+entity_type: paragraph
+bundle: ptype_question
+label: 'Proposition 2'
+description: 'Saisir la deuxième proposition qui servira à répondre à la question ou non'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

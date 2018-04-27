@@ -1,0 +1,11 @@
+name: Test D8
+description: 'Drupal certification training'
+package: Custom
+dependencies:
+  - paragraphs (>=8.x-1.2)
+  - codesnippet (>=8.x-1.6)
+  - route_condition (>=8.x-1.0-alpha2)
+type: module
+version: VERSION
+core: '8.x'
+

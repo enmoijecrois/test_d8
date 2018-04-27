@@ -1,0 +1,22 @@
+langcode: fr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.score.field_score_nid
+    - field.field.node.score.field_score_result
+    - node.type.score
+  module:
+    - user
+id: node.score.teaser
+targetEntityType: node
+bundle: score
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_score_nid: true
+  field_score_result: true
+  langcode: true

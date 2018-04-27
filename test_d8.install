@@ -1,0 +1,226 @@
+<?php
+
+/** @file ...*/
+
+use Drupal\taxonomy\Entity\Vocabulary;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\node\Entity\NodeType;
+use Drupal\node\Entity\Node;
+
+
+
+function test_d8_install(){
+
+	//////////////////////////////////////////////////////
+	//                                                  //
+	//     Générer les termes de la taxonomy Thème      //
+	//                       START                      //
+	//                                                  //
+	//////////////////////////////////////////////////////
+
+	// Nom du vocabulaire
+	$vocabularyMachineName = 'd8_themes';
+  $vocabularies = Vocabulary::loadMultiple();
+
+  // On vérifie que le vocabulaire en question existe bien
+  if (isset($vocabularies[$vocabularyMachineName])) {
+
+  	// Tableau listant les termes à créer
+	  $termsTheme = ['Webmaster','Themer','Développement','Expert'];
+
+	  // Récupère les termes du vocabulaire en question
+    $properties['vid'] = $vocabularyMachineName;
+    $terms = \Drupal::entityManager()->getStorage('taxonomy_term')->loadByProperties($properties);
+
+    // Vérification de l'existence des termes
+	  foreach ((array)$terms as $term) {
+	    // S'il y a des correspondances...
+	    if (($key = array_search($term->getName(), $termsTheme)) !== false) {
+    		// ...on retire ces termes du tableau
+        unset($termsTheme[$key]);
+	    }
+	  }
+
+	  // Poids des termes
+	  $weight = 0;
+
+	  // On crée les termes si nécessaire
+	  foreach ((array)$termsTheme as $term_name) {
+	    $term = Term::create([
+	      'vid' => $vocabularyMachineName,
+	      'name' => $term_name,
+	      'weight' => $weight
+	    ]);
+	    $term->save();
+	    $weight++;
+		}
+
+  }
+
+
+	//////////////////////////////////////////////////////
+	//                                                  //
+	//     Générer les termes de la taxonomy Thème      //
+	//                        END                       //
+	//                                                  //
+	//////////////////////////////////////////////////////
+
+
+	//////////////////////////////////////////////////////
+	//                                                  //
+	//      Générer les contenus de type Test D8        //
+	//                       START                      //
+	//                                                  //
+	//////////////////////////////////////////////////////
+
+
+  //On vérifie que le type de contenu TEST existe bien
+  if (NodeType::load('test') != null){
+
+    // On récupère la liste des champs du type de contenu TEST
+    $fieldDefinitions = \Drupal::entityManager()->getFieldDefinitions('node', 'test');
+
+    // On liste les champs dont la présence est à vérifier,
+    $fieldList = array('field_theme', 'field_questions');
+    // Et on liste aussi leur type
+    $fieldTypeList = array('entity_reference', 'entity_reference_revisions');
+
+    // On initialise une variable à true,
+    // afin de détecter d'eventuelles erreurs sur les conditions ci-dessous
+    $fieldSuccess = true;
+
+    // On boucle sur la liste afin de vérifier que les champs désirés sont bien présent
+    // Et qu'il possède le type attendu
+    for ($i=0, $length = count($fieldList); $i < $length ; $i++) {
+      if( array_key_exists($fieldList[$i], $fieldDefinitions) ) {
+        if ( $fieldDefinitions[$fieldList[$i]]->getType() != $fieldTypeList[$i] ) {
+          $fieldSuccess = false;
+          break;
+        }
+      }
+      else{
+        $fieldSuccess = false;
+        break;
+      }
+    }
+
+    // S'il n'y a pas d'erreur détectée, on continu
+    if ($fieldSuccess) {
+
+      // On liste les titres des contenus de type TEST à créer
+      $titleNodeTestlist = array('Webmaster','Themer','Développement','Expert');
+
+      // On récupère une liste de contenu de type TEST
+      $nids   = \Drupal::entityQuery('node')->condition('type','test')->execute();
+      $nodes  = Node::loadMultiple($nids);
+
+
+      // S'il trouve des contenus de type TEST
+      if ( !empty($nodes) ) {
+
+        // On va alors vérifier que les contenus que l'on souhaite créer,
+        // ne sont pas déjà existant
+        foreach ((array)$nodes as $node) {
+
+          // S'il trouve des correspondances :
+          if ( ( $key = array_search($node->getTitle(), $titleNodeTestlist) ) !== false ) {
+            // alors on retire ces titres du tableau
+            unset($titleNodeTestlist[$key]);
+          }
+
+        }
+
+      }
+
+      // On crée les contenus si nécessaire
+      foreach ((array)$titleNodeTestlist as $titleNode) {
+
+        // Récupère le terme en fonction de son nom
+        $properties['name'] = $titleNode;
+        $terms = \Drupal::entityManager()->getStorage('taxonomy_term')->loadByProperties($properties);
+
+        // On stocke son id
+        $termId = key($terms);
+        // On set la valeur du champ field_theme du contenu TEST
+        $fieldThemeValue = array('target_id' => $termId);
+
+        // Partie création du contenu
+        $node = Node::create(['type'=> 'test']);
+        $node->set('title', $titleNode);
+        $node->set('field_theme', $fieldThemeValue);
+        $node->save();
+
+      }
+
+    }
+
+  }
+
+	//////////////////////////////////////////////////////
+	//                                                  //
+	//      Générer les contenus de type Test D8        //
+	//                        END                       //
+	//                                                  //
+	//////////////////////////////////////////////////////
+
+
+/*
+    $storage = \Drupal::entityTypeManager()->getStorage("node");
+    //$ids = \Drupal::entityQuery('node')->pager('20')->execute();
+    $query = $storage->getQuery();
+
+    if ($node_type !== "") {
+      //$ids = \Drupal::entityQuery('node')->condition('type',$node_type)->pager('20')->execute();
+      $query->condition('type',$node_type);
+    }
+    $nids = $query->pager('20')->execute();
+
+    //$entities = $storage->loadMultiple($ids);
+    $entities = $storage->loadMultiple($nids);
+
+*/
+
+
+
+
+
+/*
+
+
+
+
+
+
+
+
+  $allContenuTest = \Drupal::entityTypeManager()->getStorage("node")->loadMultiple();
+  kint($allContenuTest);
+  $result = array();
+  foreach ($allContenuTest as $contenuTest) {
+    $fieldContenu = $contenuTest->getFields();
+    $titleContenu = $contenuTest->getTitle();
+    foreach ($fieldContenu as $key => $value) {
+      $fieldName = $value->getName();
+      $fieldValue = $value->getValue();
+
+      $result[$titleContenu][$fieldName] =$fieldValue;
+    }
+  }
+  kint($result);
+  die();*/
+
+/*
+  // Tableau des champs dispo pour le type de contenu test, avec le type de chaque champ
+  $entity_type_id = 'node';
+  $bundle = 'test';
+  $bundleFields = array();
+  foreach (\Drupal::entityManager()->getFieldDefinitions($entity_type_id, $bundle) as $field_name => $field_definition) {
+    $bundleFields[$entity_type_id][$field_name]['type'] = $field_definition->getType();
+    $bundleFields[$entity_type_id][$field_name]['label'] = (string)$field_definition->getLabel();
+  }
+
+  kint($bundleFields);
+  die();
+*/
+
+}

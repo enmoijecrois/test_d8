@@ -1,0 +1,30 @@
+# page du test
+test_drupal8.qcm:
+  path: '/test-drupal8/{node}'
+  defaults:
+    _title_callback: 'Drupal\test_d8\Form\TestDrupal8QcmForm::getTitle'
+    _controller: '\Drupal\test_d8\Controller\TestDrupal8QcmController::content'
+  parameters:
+    node:
+      type: node
+  requirements:
+    _access: 'TRUE'
+
+# called in js/qcm-test-drupal8.js (update_cookie())
+test_drupal8.qcm.update_cookie:
+  path: '/test-drupal8/update-cookie'
+  defaults:
+    _title: 'Update cookie'
+    _controller: '\Drupal\test_d8\Controller\TestDrupal8QcmController::updateCookie'
+  requirements:
+    _access: 'TRUE'
+
+# called in js/qcm-test-drupal8.js (update_timer())
+test_drupal8.qcm.update_timer:
+  path: '/test-drupal8/update-timer'
+  defaults:
+    _title: 'Update timer'
+    _controller: '\Drupal\test_d8\Controller\TestDrupal8QcmController::updateTimer'
+  requirements:
+    _access: 'TRUE'
+

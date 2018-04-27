@@ -1,0 +1,8 @@
+number_of_questions: 40
+time_to_complete_test: 3600 # seconds
+num_tests_per_page: 20 # pagination for user.dashboard.tests
+percent:
+  average: 50 # pourcentage moyen (résultat < en rouge, résultat > en orange)
+  graduation: 70 # pourcentage minimum pour obtenir la certif (résultat < en orange, résultat > en vert)
+namespace:
+  qcm_form: 'Drupal\test_d8\Form\TestDrupal8QcmForm'

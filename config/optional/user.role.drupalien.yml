@@ -1,0 +1,10 @@
+uuid: 892a95d2-ddb2-403b-b7e0-acae11411752
+langcode: fr
+status: true
+dependencies: {  }
+id: drupalien
+label: Drupalien
+weight: -8
+is_admin: null
+permissions:
+  - 'use text format full_html'

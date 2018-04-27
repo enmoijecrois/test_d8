@@ -1,0 +1,69 @@
+uuid: ba693d2c-4b84-4bcc-ae30-91144e17ccc2
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ptype_question.field_proposition_1
+    - field.field.paragraph.ptype_question.field_proposition_2
+    - field.field.paragraph.ptype_question.field_proposition_3
+    - field.field.paragraph.ptype_question.field_proposition_4
+    - field.field.paragraph.ptype_question.field_question
+    - field.field.paragraph.ptype_question.field_reponse
+    - paragraphs.paragraphs_type.ptype_question
+  module:
+    - text
+id: paragraph.ptype_question.default
+targetEntityType: paragraph
+bundle: ptype_question
+mode: default
+content:
+  field_proposition_1:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_proposition_2:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_proposition_3:
+    weight: 3
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_proposition_4:
+    weight: 4
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_question:
+    weight: 0
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_reponse:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

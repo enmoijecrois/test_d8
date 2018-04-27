@@ -1,0 +1,21 @@
+uuid: 10070dc2-8549-4d13-ba35-dd8a5404b94f
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_proposition_1
+    - paragraphs.paragraphs_type.ptype_question
+  module:
+    - text
+id: paragraph.ptype_question.field_proposition_1
+field_name: field_proposition_1
+entity_type: paragraph
+bundle: ptype_question
+label: 'Proposition 1'
+description: 'Saisir la première proposition qui servira à répondre à la question ou non'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

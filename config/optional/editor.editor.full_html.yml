@@ -1,0 +1,98 @@
+uuid: 6a7fc921-7c07-413f-80c8-2423398d4111
+langcode: fr
+status: true
+dependencies:
+  config:
+    - filter.format.full_html
+  module:
+    - ckeditor
+_core:
+  default_config_hash: 967ijj7p6i7rwrYl7r08WQFeCY_c23YAh0h8u-w_CXM
+format: full_html
+editor: ckeditor
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Formatting
+          items:
+            - Bold
+            - Italic
+            - Strike
+            - Superscript
+            - Subscript
+            - '-'
+            - RemoveFormat
+        -
+          name: Linking
+          items:
+            - DrupalLink
+            - DrupalUnlink
+        -
+          name: Lists
+          items:
+            - BulletedList
+            - NumberedList
+        -
+          name: Media
+          items:
+            - DrupalImage
+            - Table
+        -
+          name: 'Block Formatting'
+          items:
+            - Format
+            - CodeSnippet
+        -
+          name: Tools
+          items:
+            - ShowBlocks
+            - Source
+  plugins:
+    language:
+      language_list: un
+    stylescombo:
+      styles: 'p.code|Computer code'
+    codesnippet:
+      highlight_style: github
+      highlight_languages:
+        apache: apache
+        css: css
+        ini: ini
+        json: json
+        javascript: javascript
+        php: php
+        sql: sql
+        twig: twig
+        xml: xml
+        yaml: yaml
+        bash: 0
+        coffeescript: 0
+        dart: 0
+        dockerfile: 0
+        dust: 0
+        gherkin: 0
+        go: 0
+        haml: 0
+        handlebars: 0
+        java: 0
+        less: 0
+        makefile: 0
+        markdown: 0
+        nginx: 0
+        perl: 0
+        powershell: 0
+        puppet: 0
+        python: 0
+        ruby: 0
+        scss: 0
+        typescript: 0
+image_upload:
+  status: true
+  scheme: public
+  directory: inline-images
+  max_size: ''
+  max_dimensions:
+    width: null
+    height: null
